@@ -1,5 +1,7 @@
+{% extends "food/base.html" %}
 {% load static %}
-<!Doctype html>
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,22 +14,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">FoodApp</a>
+{% block body %}
 
-        <div class="navbar">
-            <a class="nav-item nav-link" href="#">Add Item</a>
-            <a class="nav-item nav-link" href="#">Delete Item</a>
-            <a class="nav-item nav-link" href="#">View Item</a>
-        </div>
-    </nav>
 {% for item in item_list %}
 <ul>
     <li>
         <a href="{% url 'food:detail' item.id %}">{{ item.id }} -- {{ item.name }}</a>
     </li>
 </ul>
-
 {% endfor %}
+
+{% endblock %}
+
 </body>
 </html>
